@@ -12,6 +12,8 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+console.log('modify dat fileasdfasddaasdfasdfasdfasdfdvsdfsdff');
+
 export interface PageObj {
   title: string;
   component: any;
@@ -21,7 +23,80 @@ export interface PageObj {
 }
 
 @Component({
-  templateUrl: 'app.template.html'
+  template: `
+  <!-- logged out menu -->
+  <ion-menu id="loggedOutMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menuuu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content">
+
+      <ion-list>
+        <ion-list-header>
+          Navigate
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedOutPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- logged in menu -->
+  <ion-menu id="loggedInMenu" [content]="content">
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="outer-content">
+
+      <ion-list>
+        <ion-list-header>
+          Navigate
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>
+          Account
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+
+    </ion-content>
+
+  </ion-menu>
+
+
+  <!-- main navigation -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  `
 })
 export class ConferenceApp {
   // the root nav is a child of the root app component

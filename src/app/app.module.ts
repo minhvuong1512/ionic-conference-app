@@ -21,6 +21,8 @@ import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
+//import pouch from 'pouchdb';
+//console.log('pouch: ', pouch);
 
 @NgModule({
   declarations: [

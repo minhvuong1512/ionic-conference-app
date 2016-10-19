@@ -6,7 +6,20 @@ declare var google: any;
 
 @Component({
   selector: 'page-map',
-  templateUrl: 'map.html'
+  template: `
+  <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Map</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content class="map-page">
+    <div id="map"></div>
+  </ion-content>
+`
 })
 export class MapPage {
   constructor(public confData: ConferenceData) {}
